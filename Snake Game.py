@@ -10,6 +10,7 @@ screen_width = 300
 screen_height = 300
 
 screen = pygame.display.set_mode((screen_width, screen_height))
+# Caption to be displayed on the screen:
 pygame.display.set_caption("Snake Game with Obstacles")
 
 # Generating random coordinate for the food
@@ -36,7 +37,7 @@ black = (0, 0, 0)
 pink = (255, 192, 203)
 
 
-# Define the set_random_color()
+# Define the set_random_color() function:
 def set_random_color():
     r = random.randint(0, 255)
     g = random.randint(0, 255)
@@ -59,7 +60,7 @@ collision_radius = 12
 # Setting the Initial Score:
 score = 0
 
-
+# Defining the message and how it is displayed:
 def message(msg, color):
     font = pygame.font.SysFont('Arial', 30)
     text_surface = font.render(msg, True, color)
@@ -97,8 +98,9 @@ game_over = False
 
 clock = pygame.time.Clock()
 
-
+# While not Game Over:
 while not game_over:
+    # Different events in the pygame:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game_over = True
@@ -115,28 +117,29 @@ while not game_over:
             elif event.key == pygame.K_UP:
                 x_change = 0
                 y_change = -snake_movement
-
+    # Movement of the x and y of the snake:
     x += x_change
     y += y_change
-
+    # The background color to be filled:
     screen.fill(cyan)
 
     # Drawing the Snake Body Segment
     snake_head = [x, y]
     snake_segments.append(snake_head)
-
+    # Checking the length of the snake to see if it is larger than snake_length
     if len(snake_segments) > snake_length:
         del snake_segments[0]
 
     draw_obstacles()
 
+    # Draw the snake segments:
     for segment in snake_segments:
         pygame.draw.rect(screen, pink, [segment[0], segment[1], 15, 15])
 
 
-
+    # The starting point of the head of the snake
     pygame.draw.rect(screen, white, [x, y, 15, 15])
-
+    
     if abs(x - foodie_x) < collision_radius and abs(y - foodie_y) < collision_radius:
         foodie_x = random.randint(3, screen_width - 25)
         foodie_y = random.randint(3, screen_height - 25)
@@ -145,10 +148,15 @@ while not game_over:
 
         generate_obstacle()
 
+    # Additional: If the snake collide with the Black Obstacles:
     if any(abs(x - obstacle_x) < collision_radius and abs(y - obstacle_y) < collision_radius for obstacle_x, obstacle_y in obstacles):
         game_over = True
-
+    # If the snake collide with the Screen Boundary:
     if x >= screen_width or x < 0 or y >= screen_height or y < 0:
+        game_over = True
+
+    # If the snake collide with its own body:
+    if snake_segments.count(snake_head) > 1:
         game_over = True
 
     # Display Game Over
@@ -157,13 +165,13 @@ while not game_over:
         pygame.display.update()
         pygame.time.delay(3000)
 
-
+    # Draw the food for the snake:
     pygame.draw.rect(screen, set_random_color(), [foodie_x, foodie_y, 15, 15])
 
     display_score()
 
     pygame.display.update()
-
+    # How fast the game will run:
     clock.tick(30)
 
 pygame.quit()
