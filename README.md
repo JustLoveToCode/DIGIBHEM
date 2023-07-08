@@ -1,6 +1,6 @@
 # DigitialBhem_Python_Task_2
 
-This is the Simple Snake Game with Some Modified Feature.
+This is the snake game with some modified feature.
 The score will increased when the snake eat the food 
 The game will be over:
 1) When the snake hit the black obstacle.
