@@ -72,7 +72,7 @@ def message(msg, color):
 # Display the Score in the Scoreboard:
 def display_score():
     font = pygame.font.SysFont('Arial', 40)
-    score_text = font.render("Score " + str(score), True, black)
+    score_text = font.render("Score " + str(score), True, white)
     screen.blit(score_text, (20, 20))
 
 # List to Store the Obstacles Coordinate:
@@ -161,7 +161,7 @@ while not game_over:
 
     # Display Game Over
     if game_over:
-        message("Game Over", orange)
+        message(f"Game Over: Score {score}", orange)
         pygame.display.update()
         pygame.time.delay(3000)
 
