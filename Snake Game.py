@@ -44,7 +44,7 @@ def set_random_color():
     b = random.randint(0, 255)
     return (r, g, b)
 
-
+# Defining Snake Movement:
 snake_movement = 5
 
 
@@ -147,7 +147,7 @@ while not game_over:
         score += 1
 
         generate_obstacle()
-
+    # Defining the Game Over Criteria:
     # Additional: If the snake collide with the Black Obstacles:
     if any(abs(x - obstacle_x) < collision_radius and abs(y - obstacle_y) < collision_radius for obstacle_x, obstacle_y in obstacles):
         game_over = True
@@ -159,7 +159,7 @@ while not game_over:
     if snake_segments.count(snake_head) > 1:
         game_over = True
 
-    # Display Game Over
+    # Display Game Over Message:
     if game_over:
         message(f"Game Over: Score {score}", orange)
         pygame.display.update()
@@ -167,12 +167,13 @@ while not game_over:
 
     # Draw the food for the snake:
     pygame.draw.rect(screen, set_random_color(), [foodie_x, foodie_y, 15, 15])
-
+    
+    # Invoking the display_score() function:
     display_score()
-
+    # Using pygame.display.update() to update the display accordingly:
     pygame.display.update()
     # How fast the game will run:
     clock.tick(30)
-
+# Quit the pygame:
 pygame.quit()
 quit()
