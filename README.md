@@ -9,6 +9,9 @@ The game will be over:
 Last checked on 7 July 2023, the game is working properly.
 Please run the snake game on the Pygame venv environment.
 
+The code will be updated every now and then so that the game
+will be more interesting and fun.
+
 Module that is needed for this game to work:
 Pygame Module
 random Module
