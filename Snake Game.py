@@ -15,6 +15,7 @@ pygame.display.set_caption("Snake Game with Obstacles")
 
 # Generating random coordinate for the food
 food = 10
+
 # Ensuring Food is generated within the Screen:
 foodie_x = random.randint(3, screen_width - 25)
 foodie_y = random.randint(3, screen_height - 25)
@@ -37,12 +38,6 @@ black = (0, 0, 0)
 pink = (255, 192, 203)
 
 
-# Define the set_random_color() function:
-def set_random_color():
-    r = random.randint(0, 255)
-    g = random.randint(0, 255)
-    b = random.randint(0, 255)
-    return (r, g, b)
 
 # Defining Snake Movement:
 snake_movement = 5
@@ -60,6 +55,18 @@ collision_radius = 12
 # Setting the Initial Score:
 score = 0
 
+# List to Store the Obstacles Coordinate:
+obstacles = []
+
+
+# Define the set_random_color() function:
+def set_random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    return (r, g, b)
+
+
 # Defining the message and how it is displayed:
 def message(msg, color):
     font = pygame.font.SysFont('Arial', 30)
@@ -75,8 +82,6 @@ def display_score():
     score_text = font.render("Score " + str(score), True, white)
     screen.blit(score_text, (20, 20))
 
-# List to Store the Obstacles Coordinate:
-obstacles = []
 
 
 # Coordinate to generate the Obstacles
