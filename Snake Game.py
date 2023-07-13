@@ -106,17 +106,17 @@ while not game_over:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game_over = True
-        if event.type == pygame.KEYDOWN:
+        if event.type == pygame.KEYDOWN or pygame.w:
             if event.key == pygame.K_LEFT:
                 x_change = -snake_movement
                 y_change = 0
-            elif event.key == pygame.K_RIGHT:
+            elif event.key == pygame.K_RIGHT or pygame.d:
                 x_change = snake_movement
                 y_change = 0
-            elif event.key == pygame.K_DOWN:
+            elif event.key == pygame.K_DOWN or pygame.s:
                 x_change = 0
                 y_change = snake_movement
-            elif event.key == pygame.K_UP:
+            elif event.key == pygame.K_UP or pygame.a:
                 x_change = 0
                 y_change = -snake_movement
     # Movement of the x and y of the snake:
