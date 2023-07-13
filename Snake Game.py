@@ -42,7 +42,6 @@ pink = (255, 192, 203)
 # Defining Snake Movement:
 snake_movement = 5
 
-
 # Setting the initial Length of the Snake:
 snake_length = 1
 
@@ -111,6 +110,7 @@ while not game_over:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game_over = True
+        # KEYDOWN is one of the Key Event:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT or event.key == pygame.K_a:
                 x_change = -snake_movement
@@ -182,6 +182,7 @@ while not game_over:
     pygame.display.update()
     # How fast the game will run:
     clock.tick(30)
+    
 # Quit the pygame:
 pygame.quit()
 quit()
