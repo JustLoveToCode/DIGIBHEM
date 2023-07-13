@@ -88,8 +88,10 @@ def generate_obstacle():
 
 # Draw the Obstacle
 def draw_obstacles():
+    # Looping through the List for the obstacles:
     for obstacle in obstacles:
         obstacle_x, obstacle_y = obstacle
+        # Obstacles in the form of black circle:
         pygame.draw.circle(screen, black, (obstacle_x + 7, obstacle_y + 7), 7)
 
 
@@ -128,8 +130,9 @@ while not game_over:
     snake_segments.append(snake_head)
     # Checking the length of the snake to see if it is larger than snake_length
     if len(snake_segments) > snake_length:
+        # Delete the older snake_segment
         del snake_segments[0]
-
+    # Invoking the function for draw_obstacles:
     draw_obstacles()
 
     # Draw the snake segments:
@@ -145,7 +148,7 @@ while not game_over:
         foodie_y = random.randint(3, screen_height - 25)
         snake_length += 1
         score += 1
-
+        # Invoking the function for generate_obstacle()
         generate_obstacle()
     # Defining the Game Over Criteria:
     # Additional: If the snake collide with the Black Obstacles:
