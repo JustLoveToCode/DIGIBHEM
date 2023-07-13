@@ -106,8 +106,8 @@ while not game_over:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game_over = True
-        if event.type == pygame.KEYDOWN or event.key == pygame.K_a:
-            if event.key == pygame.K_LEFT:
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT or event.key == pygame.K_a:
                 x_change = -snake_movement
                 y_change = 0
             elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
